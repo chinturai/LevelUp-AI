@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -8,8 +9,8 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LevelUp AI",
-  description: "Your AI Interview Prep Buddy",
+  title: "LevelUp AI - Prep Buddy",
+  description: "Your AI Mock Interview Assistant , Helps you practice by simulating interviews which feel real. Get ready to ace your next interview. with LevelUp AI⚡ ",
 };
 
 export default function RootLayout({
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
        <body className={`${monaSans.className} antialiased pattern`}>
        {children}
+       <Toaster/>
       </body>
     </html>
   );
