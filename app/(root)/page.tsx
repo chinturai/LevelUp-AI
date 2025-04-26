@@ -4,7 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 import InterviewCard from '@/components/InterviewCard';
 import { dummyInterviews } from "@/constants";
-import { getCurrentUser, getInterviewsByUserId, getLatestInterviews } from '@/lib/actions/auth.action';
+import { getCurrentUser } from '@/lib/actions/auth.action';
+import {getInterviewsByUserId, getLatestInterviews } from '@/lib/actions/general.action';
 
 const page = async () => {
 
@@ -12,9 +13,9 @@ const page = async () => {
 
   //Parallel Request Fetching 
   const [userInterviews, latestInterviews] = await Promise.all([
-    await getInterviewsByUserId(user?.id!),
-    await getLatestInterviews({ userId: user?.id! })
-  ])
+    getInterviewsByUserId(user?.id!),
+    getLatestInterviews({ userId: user?.id! }),
+  ]);
 
   // Classic Method 
   // const userInterviews = await getInterviewsByUserId(user?.id!);
