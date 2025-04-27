@@ -23,21 +23,32 @@ const Feedback = async ({ params }: RouteParams) => {
 
     return (
 
-        <section className="bg-gray-900 text-gray-100 min-h-screen p-6">
+        <section className="text-gray-100 min-h-screen p-6">
             <div className="max-w-4xl mx-auto">
                 {/* Header Card */}
-                <div className="bg-gray-800 rounded-lg p-6 mb-6 shadow-lg">
+                <div className="rounded-lg p-6 mb-6 shadow-lg flex flex-col gap-6 justify-center">
                     <h1 className="text-2xl font-bold text-blue-400">
                         Feedback on the Interview -{" "}
-                        <span className="text-white">{interview.role}</span> Interview
+                        <span className="text-white capitalize">{interview.role}</span> Interview
                     </h1>
+
+                    <Button className="bg-gray-900 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200">
+                        <Link href="/" className="flex items-center justify-center">
+                            <p className="flex items-center gap-2">
+                                <span>←</span> Back to Home 🏠
+                            </p>
+                        </Link>
+                    </Button>
+
+
                 </div>
 
                 {/* Score and Date Card */}
-                <div className="bg-gray-800 rounded-lg p-6 mb-6 shadow-lg">
+                <div className="rounded-lg mb-6 shadow-lg">
+                    <h2 className="mb-5">Your Overall Score: </h2>
                     <div className="flex flex-col md:flex-row justify-between gap-4">
                         {/* Overall Impression */}
-                        <div className="flex items-center gap-2 bg-gray-700 p-4 rounded-lg flex-1">
+                        <div className="flex items-center gap-2 bg-gray-900 p-4 rounded-lg flex-1">
                             <Image src="/star.svg" width={22} height={22} alt="star" className="text-yellow-400" />
                             <p className="font-medium">
                                 Overall Impression:{" "}
@@ -47,7 +58,7 @@ const Feedback = async ({ params }: RouteParams) => {
                         </div>
 
                         {/* Date */}
-                        <div className="flex items-center gap-2 bg-gray-700 p-4 rounded-lg flex-1">
+                        <div className="flex items-center gap-2 bg-gray-900 p-4 rounded-lg flex-1">
                             <Image src="/calendar.svg" width={22} height={22} alt="calendar" />
                             <p>
                                 {feedback?.createdAt
@@ -59,17 +70,17 @@ const Feedback = async ({ params }: RouteParams) => {
                 </div>
 
                 {/* Final Assessment Card */}
-                <div className="bg-gray-800 rounded-lg p-6 mb-6 shadow-lg">
-                    <h2 className="text-xl font-semibold mb-4 text-blue-400">Final Assessment</h2>
+                <h2 className="mb-5">Final Assessment: </h2>
+                <div className="bg-gray-900 rounded-lg p-6 mb-6 shadow-lg">
                     <p className="text-gray-300 leading-relaxed">{feedback?.finalAssessment}</p>
                 </div>
 
                 {/* Interview Breakdown Card */}
-                <div className="bg-gray-800 rounded-lg p-6 mb-6 shadow-lg">
-                    <h2 className="text-xl font-semibold mb-4 text-blue-400">Breakdown of the Interview</h2>
+                <h2 className="mb-5">Breakdown of the Interview: </h2>
+                <div className="rounded-lg p-6 mb-6 shadow-lg">
                     <div className="space-y-4">
                         {feedback?.categoryScores?.map((category, index) => (
-                            <div key={index} className="bg-gray-700 p-4 rounded-lg">
+                            <div key={index} className="bg-gray-900 p-4 rounded-lg">
                                 <p className="font-medium text-white">
                                     {index + 1}. {category.name} <span className="text-blue-400">({category.score}/100)</span>
                                 </p>
@@ -80,9 +91,9 @@ const Feedback = async ({ params }: RouteParams) => {
                 </div>
 
                 {/* Strengths and Improvements Cards */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="grid md:grid-rows-2 gap-6 mb-6">
                     {/* Strengths Card */}
-                    <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <div className="p-6 border-4 border-green-800 rounded-lg animate-pulse">
                         <h3 className="text-xl font-semibold mb-4 text-green-400">Strengths</h3>
                         <ul className="space-y-2">
                             {feedback?.strengths?.map((strength, index) => (
@@ -95,7 +106,7 @@ const Feedback = async ({ params }: RouteParams) => {
                     </div>
 
                     {/* Areas for Improvement Card */}
-                    <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <div className="p-6 border-4 border-red-800 rounded-lg animate-pulse">
                         <h3 className="text-xl font-semibold mb-4 text-red-400">Areas for Improvement</h3>
                         <ul className="space-y-2">
                             {feedback?.areasForImprovement?.map((area, index) => (
@@ -110,14 +121,6 @@ const Feedback = async ({ params }: RouteParams) => {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200">
-                        <Link href="/" className="flex items-center justify-center">
-                            <p className="flex items-center gap-2">
-                                <span>←</span> Back to dashboard
-                            </p>
-                        </Link>
-                    </Button>
-
                     <Button className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg transition duration-200">
                         <Link href={`/interview/${id}`} className="flex items-center justify-center">
                             <p className="flex items-center gap-2">

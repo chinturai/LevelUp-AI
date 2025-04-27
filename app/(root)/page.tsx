@@ -29,15 +29,15 @@ const page = async () => {
 
       <div className='flex flex-col gap-6 max-w-lg'>
 
-        <h2>Ace Every Interview - Practice with AI, Succeed in Reality</h2>
+        <h2 className='text-6xl'>Ace Every Interview - Practice with AI, Succeed in Reality</h2>
 
         <p className='text-lg'>
-          Simulate real interview scenarios, get instant AI feedback, and track your progress over time. <b>It's time to LevelUp ⚡</b>
+          Simulate real interview scenarios, get instant AI feedback, and track your progress over time. <b>It's time to LevelUp⚡</b>
         </p>
 
         <Button asChild className='btn-primary max-sm:w-full'>
           <Link href="/interview">
-            Simulate an Interview
+            Generate an Interview  →
           </Link>
         </Button>
 
