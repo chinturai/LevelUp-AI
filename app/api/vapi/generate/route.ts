@@ -23,6 +23,7 @@ export async function POST(request: Request) {
                     The amount of questions required is: ${amount}.
                     Please return only the questions, without any additional text.
                     The questions are going to be read by a voice assistant so do not use "/" or "*" or any other special characters which might break the voice assistant.
+                    Dont say the user to write any code, just ask the user questions which can be asnswered verbally
                     Return the questions formatted like this:
                     ["Question 1", "Question 2", "Question 3"]
         
