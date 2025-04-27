@@ -1,7 +1,13 @@
 ---
 
 # 🚀 LevelUp AI
-## Under Development 🧪🔬
+
+--- 
+
+## Watch the Demo Video 👇👇
+[![Watch the Demo video](https://img.youtube.com/vi/L2LOvs99VJk/0.jpg)](https://youtu.be/L2LOvs99VJk)
+
+---
 
 LevelUp AI is a modern, AI-powered web application that helps users **practice job interviews** using voice-based agents and get instant, intelligent feedback. Built using **Next.js**, **Firebase**, **Tailwind CSS**, and **Vapi AI**, this platform blends smart technology with beautiful design to provide a seamless and immersive mock interview experience.
 
